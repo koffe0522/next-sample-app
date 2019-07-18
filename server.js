@@ -1,21 +1,17 @@
-const express = require('express')
-const { createServer } = require('http')
-const { parse } = require('url')
-const next = require('next')
+import express from "express";
+import next from "next";
 
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
 
-app.prepare()
-.then(() => {
-  const server = express()
+app.prepare().then(() => {
+  const server = express();
 
-  server.get('/', (req, res) => {
-    app.render(req, res, '/', {})
-  })
+  server.get("/", (req, res) => {
+    app.render(req, res, "/", {});
+  });
 
-  server.listen(3000, (err) => {
-    if (err) throw err
-  })
-})
+  server.listen(3000, err => {
+    if (err) throw err;
+  });
+});
