@@ -1,5 +1,5 @@
-import express from "express";
-import next from "next";
+const express = require("express");
+const next = require("next");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -11,7 +11,7 @@ app.prepare().then(() => {
     app.render(req, res, "/", {});
   });
 
-  server.listen(3000, err => {
+  server.listen(8000, err => {
     if (err) throw err;
   });
 });
