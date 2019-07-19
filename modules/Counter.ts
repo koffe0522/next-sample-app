@@ -27,7 +27,7 @@ interface DecrementAction {
 }
 
 /* Type */
-type CounterActionTypes = IncrementAction | DecrementAction;
+export type CounterActionTypes = IncrementAction | DecrementAction;
 
 /**
  * ステートを定義するI/F
@@ -46,13 +46,14 @@ const initialState: Istate = {
   count: 0
 };
 
+type ReducerType = (state: Istate, action: CounterActionTypes) => Istate;
 /**
  * `Reducer`
  * @param {State} state ステート
  * @param {CounterActionTypes} action アクション
  * @returns {State} ステート
  */
-const reducer = (
+const reducer: ReducerType = (
   state: Istate = initialState,
   action: CounterActionTypes
 ): Istate => {
