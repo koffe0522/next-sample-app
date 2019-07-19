@@ -1,36 +1,56 @@
-/* redux */
-import { useSelector } from "react-redux";
 import React from "react";
+import { useSelector } from "react-redux";
+
+/* modules */
+import Header from "../components/organisms/Header";
+import LoginForm from "../components/organisms/LoginForm";
+import Todolist from "../components/organisms/TodoList";
+import LogoutButton from "../components/organisms/LogoutButton";
 
 /**
- * Storeから受けっとったカウンターのStateを定義するI/F
- * @interface Istate
+ * Storeから受けとったStateを定義するI/F
+ * @interface State
  */
-interface Istate {
-  counter: {
-    count: number;
+interface State {
+  auth: {
+    userName: string;
   };
 }
 
 /**
  * Propsの値を定義するI/F
- * @interface Iprops
+ * @interface Props
  */
-interface Iprops {
-  count: number;
+interface Props {
+  userName: string;
 }
 
 function Index(): JSX.Element {
-  /* state */
-  const counter: number = useSelector(
-    (state: Istate): number => state.counter.count
+  /* maoStateToProps */
+  const useName: string = useSelector(
+    (state: State): string => state.auth.userName
   );
 
-  return <div>{counter}</div>;
+  return (
+    <div>
+      <Header />
+      <h1>Sample App</h1>
+
+      {useName !== "" ? (
+        <>
+          <h2>Hello {useName}</h2>
+          <LogoutButton />
+          <Todolist />
+        </>
+      ) : (
+        <LoginForm />
+      )}
+    </div>
+  );
 }
 
-Index.getInitialProps = (props: Iprops): object => {
-  return { count: props.count };
+Index.getInitialProps = (props: Props): object => {
+  return { userName: props.userName };
 };
 
 export default Index;

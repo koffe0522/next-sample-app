@@ -13,7 +13,7 @@ import {
 import CalculationButton from "../../molecules/calculationButton";
 
 /**
- * Storeから受けっとったカウンターのStateを定義するI/F
+ * Storeから受けとったカウンターのStateを定義するI/F
  * @interface Istate
  */
 interface Istate {
