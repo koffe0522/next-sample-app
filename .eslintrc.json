@@ -9,6 +9,7 @@
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended",
+      "prettier/react",
       "prettier/@typescript-eslint"
     ],
     "globals": {
@@ -108,6 +109,15 @@
           "ts": "never",
           "tsx": "never"
         }
-      ]
+      ],
+    /*
+     * typescript
+     */
+    // publicとかprivateなどのアクセス修飾子を強要
+    "@typescript-eslint/explicit-member-accessibility": 1,
+    // 関数のexportの並び順をしばる 有効化
+    "@typescript-eslint/adjacent-overload-signatures": "error",
+    // interfaceで書けるものをtypeで書くと怒る 無効化 typeが強力になったのでもうそういう時代じゃない
+    "@typescript-eslint/prefer-interface": 0,
     }
   }
