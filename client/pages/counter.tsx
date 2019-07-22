@@ -1,14 +1,17 @@
 import React from "react";
 
+/* layouts */
+import Main from "../layouts";
+
 /* components */
-import Header from "../components/organisms/Header";
 import CalculationBody from "../components/organisms/CalculationBody";
 
 function Counter(): JSX.Element {
   return (
     <>
-      <Header />
-      <CalculationBody />
+      <Main>
+        <CalculationBody />
+      </Main>
     </>
   );
 }

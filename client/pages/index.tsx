@@ -1,8 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+/* layouts */
+import Main from "../layouts";
+
 /* modules */
-import Header from "../components/organisms/Header";
 import LoginForm from "../components/organisms/LoginForm";
 import Todolist from "../components/organisms/TodoList";
 import LogoutButton from "../components/organisms/LogoutButton";
@@ -32,20 +34,21 @@ function Index(): JSX.Element {
   );
 
   return (
-    <div>
-      <Header />
-      <h1>Sample App</h1>
+    <Main>
+      <div>
+        <h1>Sample App</h1>
 
-      {useName !== "" ? (
-        <>
-          <h2>Hello {useName}</h2>
-          <LogoutButton />
-          <Todolist />
-        </>
-      ) : (
-        <LoginForm />
-      )}
-    </div>
+        {useName !== "" ? (
+          <>
+            <h2>Hello {useName}</h2>
+            <LogoutButton />
+            <Todolist />
+          </>
+        ) : (
+          <LoginForm />
+        )}
+      </div>
+    </Main>
   );
 }
 

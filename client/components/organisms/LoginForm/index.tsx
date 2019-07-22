@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
-import { login } from "../../../modules/Auth";
+import { login } from "../../../modules/auth";
 
 function LoginForm(): JSX.Element {
   /* state */

@@ -7,7 +7,7 @@ import {
   increment,
   decrement,
   CounterActionTypes
-} from "../../../modules/Counter";
+} from "../../../modules/counter";
 
 /* components */
 import CalculationButton from "../../molecules/calculationButton";

@@ -45,6 +45,7 @@
       }
     },
     "rules": {
+      "@typescript-eslint/prefer-interface": 0,
       "max-len": [
         1,
         140,
@@ -109,15 +110,6 @@
           "ts": "never",
           "tsx": "never"
         }
-      ],
-    /*
-     * typescript
-     */
-    // publicとかprivateなどのアクセス修飾子を強要
-    "@typescript-eslint/explicit-member-accessibility": 1,
-    // 関数のexportの並び順をしばる 有効化
-    "@typescript-eslint/adjacent-overload-signatures": "error",
-    // interfaceで書けるものをtypeで書くと怒る 無効化 typeが強力になったのでもうそういう時代じゃない
-    "@typescript-eslint/prefer-interface": 0,
+      ]
     }
   }

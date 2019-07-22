@@ -9,6 +9,8 @@ const routes = nextRoutes.getRequestHandler(app);
 app.prepare().then((): any => {
   const server = createServer(
     (req, res): Server => {
+      // ヘッダー情報
+      // res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
       return routes(req, res);
     }
   );

@@ -3,15 +3,8 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 /* middleware */
 import { createLogger } from "redux-logger";
 
-/* reducer */
-import counterReducers from "./modules/Counter";
-import authReducer from "./modules/Auth";
-
-/* reducers */
-const reducers = {
-  counter: counterReducers,
-  auth: authReducer
-};
+/* modules */
+import reducers from "./modules";
 
 /**
  * `logger`
