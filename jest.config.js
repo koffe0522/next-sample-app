@@ -10,5 +10,6 @@ module.exports = {
   snapshotSerializers: ["enzyme-to-json/serializer"],
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "babel-jest"
-  }
+  },
+  testMatch: ["**/__tests__/**/*.test.(ts|tsx|js)"]
 };

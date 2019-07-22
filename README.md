@@ -1,12 +1,9 @@
 # Next Sample App
 This project is a practice app that implements basic features
 
-## architecture
+## topcs
+- Language - Typescript
+- Style - SCSS
 - Component - Hooks  
 - Redux - Ducks
-
-## topcs
-- authentication
-- REST
-- recycleview
-- pagenation
+- Test - jest
