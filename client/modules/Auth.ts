@@ -3,7 +3,7 @@
  *  ActionTypeを定義する列挙型
  * @enum {number}
  */
-enum ActionTypes {
+export enum ActionTypes {
   LOGIN = "LOGIN",
   LOGOUT = "LOGOUT"
 }
