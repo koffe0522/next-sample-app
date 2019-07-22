@@ -5,12 +5,12 @@
   "main": "index.ts",
   "scripts": {
     "next": "next",
-    "nodemon": "nodemon",
-    "dev": "node server.js",
+    "dev": "nodemon",
     "build": "npm run next build ./client && tsc --project tsconfig.server.json",
     "start": "NODE_ENV=production node server.js",
     "lint": "prettier-eslint --write src/*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass client/styles/index.scss client/static/style.css --output-style compressed"
   },
   "keywords": [],
   "author": "",
@@ -41,6 +41,10 @@
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
@@ -48,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
+    "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "typescript": "^3.5.3"
   }
