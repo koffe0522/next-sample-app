@@ -12,19 +12,19 @@ export enum ActionTypes {
  * ActionCreaterの返り値を定義するI/F
  * @interface LoginAction
  */
-interface LoginAction {
+export type LoginAction = {
   type: typeof ActionTypes.LOGIN;
   payload: string;
-}
+};
 
 /**
  * ActionCreaterの返り値を定義するI/F
  * @interface LogoutAction
  */
-interface LogoutAction {
+export type LogoutAction = {
   type: typeof ActionTypes.LOGOUT;
   payload: string;
-}
+};
 
 /* Type */
 export type AuthActionTypes = LoginAction | LogoutAction;
@@ -33,7 +33,7 @@ export type AuthActionTypes = LoginAction | LogoutAction;
  * ステートを定義するI/F
  * @interface StateType
  */
-interface StateType {
+export interface StateType {
   /**
    * @type {string}
    * @memberof State
@@ -82,7 +82,7 @@ export const login = (params: string): LoginAction => ({
   payload: params
 });
 
-export const loginOut = (): LogoutAction => ({
+export const logOut = (): LogoutAction => ({
   type: ActionTypes.LOGOUT,
   payload: ""
 });

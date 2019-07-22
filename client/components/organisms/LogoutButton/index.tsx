@@ -1,7 +1,7 @@
 import React from "react";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
-import { loginOut } from "../../../modules/auth";
+import { logOut } from "../../../modules/auth";
 
 /* style */
 import styles from "./styles.scss";
@@ -10,7 +10,7 @@ function LogoutButton(): JSX.Element {
   const dispatch: Dispatch = useDispatch();
 
   const handleSubmit = (): void => {
-    dispatch(loginOut());
+    dispatch(logOut());
   };
 
   return (
