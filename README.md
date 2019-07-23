@@ -7,3 +7,4 @@ This project is a practice app that implements basic features
 - Component - Hooks  
 - Redux - Ducks
 - Test - jest
+- Model - TypesObject
