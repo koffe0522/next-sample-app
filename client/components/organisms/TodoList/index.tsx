@@ -47,6 +47,16 @@ function Todolist(): JSX.Element {
     return response;
   };
 
+  const deleteTodo = (key: number): void => {
+    setTodos(
+      todos
+        .filter((_, index): unknown => index !== key)
+        .map((value): string => {
+          return value;
+        })
+    );
+  };
+
   useEffect((): void => {
     // ローカルストレージへ保存
     postTodoData().then((res: TodoList): void => {
@@ -66,7 +76,14 @@ function Todolist(): JSX.Element {
         {todos.map(
           (value, index): JSX.Element => {
             const element =
-              value !== "" ? <li key={index.toString()}>{value}</li> : null;
+              value !== "" ? (
+                <li key={index.toString()}>
+                  {value}
+                  <button type="button" onClick={(): void => deleteTodo(index)}>
+                    x
+                  </button>
+                </li>
+              ) : null;
             return element;
           }
         )}

@@ -3,6 +3,9 @@ import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 import { login } from "../../../modules/auth";
 
+/* styles */
+import styles from "./styles.scss";
+
 function LoginForm(): JSX.Element {
   /* state */
   const [input, setInput] = useState<string>("");
@@ -29,7 +32,7 @@ function LoginForm(): JSX.Element {
           onChange={(e): void => handleChange(e.target.value)}
         />
       </label>
-      <button type="button" onClick={handleSubmit}>
+      <button className={styles.button} type="button" onClick={handleSubmit}>
         Login
       </button>
     </>
