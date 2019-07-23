@@ -7,10 +7,10 @@ import {
   increment,
   decrement,
   CounterActionTypes
-} from "../../../modules/counter";
+} from "app/client/modules/counter";
 
 /* components */
-import CalculationButton from "../../molecules/calculationButton";
+import CalculationButton from "app/client/components/molecules/calculationButton";
 
 /**
  * Storeから受けとったカウンターのStateを定義するI/F

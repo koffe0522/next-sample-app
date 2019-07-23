@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
-import { login } from "../../../modules/auth";
+import { login } from "app/client/modules/auth";
 
 /* styles */
 import styles from "./styles.scss";

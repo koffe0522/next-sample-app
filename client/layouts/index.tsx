@@ -1,7 +1,7 @@
 import React from "react";
 
 /* organisms */
-import Header from "../components/organisms/Header";
+import Header from "app/client/components/organisms/Header";
 
 type Layout = {
   children: JSX.Element;

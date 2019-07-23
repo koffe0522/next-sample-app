@@ -4,7 +4,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
 
 /* modules */
-import reducers from "./modules";
+import reducers from "app/client/modules";
 
 /**
  * `logger`

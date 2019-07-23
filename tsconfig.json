@@ -18,7 +18,13 @@
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "preserveConstEnums": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "app/*": [
+        "*"
+      ]
+    },
   },
   "exclude": [
     "node_modules"

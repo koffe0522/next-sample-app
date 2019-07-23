@@ -1,7 +1,7 @@
 import React from "react";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
-import { logOut } from "../../../modules/auth";
+import { logOut } from "app/client/modules/auth";
 
 /* style */
 import styles from "./styles.scss";

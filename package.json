@@ -1,5 +1,5 @@
 {
-  "name": "next-sample-app",
+  "name": "app",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -8,7 +8,9 @@
     "dev": "nodemon",
     "build": "npm run next build ./client && tsc --project tsconfig.server.json",
     "start": "NODE_ENV=production node server.js",
-    "lint": "prettier-eslint --write src/*",
+    "lint": "prettier-eslint --write client/*",
+    "eslint": "eslint .",
+    "fix": "eslint --fix .",
     "test": "jest",
     "build-css": "node-sass client/styles/index.scss client/static/style.css --output-style compressed"
   },
@@ -47,6 +49,7 @@
     "@typescript-eslint/parser": "^1.12.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^24.8.0",
+    "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.10.0",

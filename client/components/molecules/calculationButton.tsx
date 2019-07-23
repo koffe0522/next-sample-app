@@ -1,8 +1,8 @@
 import React from "react";
 
 /* component */
-import Button from "../atoms/button";
-import { CounterActionTypes } from "../../modules/counter";
+import Button from "app/client/components/atoms/button";
+import { CounterActionTypes } from "app/client/modules/counter";
 
 /**
  * ボタンに実装する関数を定義するI/F

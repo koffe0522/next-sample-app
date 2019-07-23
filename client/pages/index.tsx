@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 /* layouts */
-import Main from "../layouts";
+import Main from "app/client/layouts";
 
 /* modules */
-import LoginForm from "../components/organisms/LoginForm";
-import Todolist from "../components/organisms/TodoList";
-import LogoutButton from "../components/organisms/LogoutButton";
+import LoginForm from "app/client/components/organisms/LoginForm";
+import Todolist from "app/client/components/organisms/TodoList";
+import LogoutButton from "app/client/components/organisms/LogoutButton";
 
 /**
  * Storeから受けとったStateを定義するI/F
