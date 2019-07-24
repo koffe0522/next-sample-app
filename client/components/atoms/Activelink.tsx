@@ -8,7 +8,7 @@ type Props = {
   router: any;
   href: string;
   target?: string;
-  onClick?: Function;
+  onClick: (e?: React.MouseEvent) => {};
   className?: string;
   rel?: string;
 };

@@ -59,15 +59,20 @@ function Todolist(): JSX.Element {
 
   useEffect((): void => {
     // ローカルストレージへ保存
-    postTodoData().then((res: TodoList): void => {
-      localStorage.setItem(res.name, res.todos.join(","));
+    postTodoData().then((res: object): void => {
+      localStorage.setItem(
+        (res as TodoList).name,
+        (res as TodoList).todos.join(",")
+      );
     });
   }, [todos]);
 
   useEffect((): void => {
     // ローカルストレージから取得
-    const todoslist: string = localStorage.getItem(useName);
-    setTodos(todoslist.split(","));
+    const todoslist = localStorage.getItem(useName);
+    if (typeof todoslist === "string") {
+      setTodos(todoslist.split(","));
+    }
   }, []);
 
   return (
@@ -83,7 +88,9 @@ function Todolist(): JSX.Element {
                     x
                   </button>
                 </li>
-              ) : null;
+              ) : (
+                <></>
+              );
             return element;
           }
         )}

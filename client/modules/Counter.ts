@@ -1,5 +1,3 @@
-import { Action } from "redux";
-
 /**
  * `Action Type`
  *  ActionTypeを定義する列挙型
@@ -14,7 +12,7 @@ enum ActionTypes {
  * ActionCreaterの返り値を定義するI/F
  * @interface IncrementAction
  */
-interface IncrementAction extends Action {
+interface IncrementAction {
   type: typeof ActionTypes.INCREMENT;
 }
 
@@ -46,14 +44,14 @@ const initialState: Istate = {
   count: 0
 };
 
-type ReducerType = (state: Istate, action: CounterActionTypes) => Istate;
+type CountersReducer = (state: Istate, action: CounterActionTypes) => Istate;
 /**
  * `Reducer`
  * @param {State} state ステート
  * @param {CounterActionTypes} action アクション
  * @returns {State} ステート
  */
-const reducer: ReducerType = (
+const reducer: CountersReducer = (
   state: Istate = initialState,
   action: CounterActionTypes
 ): Istate => {

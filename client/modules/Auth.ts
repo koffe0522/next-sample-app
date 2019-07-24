@@ -46,14 +46,14 @@ const initialState: StateType = {
   userName: ""
 };
 
-type ReducerType = (state: StateType, action: AuthActionTypes) => StateType;
+type AuthReducer = (state: StateType, action: AuthActionTypes) => StateType;
 /**
  * `Reducer`
  * @param {State} state ステート
  * @param {AuthActionTypes} action アクション
  * @returns {State} ステート
  */
-const reducer: ReducerType = (
+const reducer: AuthReducer = (
   state: StateType = initialState,
   action: AuthActionTypes
 ): StateType => {
