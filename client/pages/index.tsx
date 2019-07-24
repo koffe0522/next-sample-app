@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 /* layouts */
 import Main from "app/client/layouts";
@@ -47,6 +48,9 @@ function Index(): JSX.Element {
         ) : (
           <LoginForm />
         )}
+        <Button variant="contained" color="secondary">
+          Hello World
+        </Button>
       </div>
     </Main>
   );

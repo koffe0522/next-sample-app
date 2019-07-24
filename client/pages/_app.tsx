@@ -1,10 +1,16 @@
 import React from "react";
 import { Provider } from "react-redux";
 import App, { Container, AppContext, AppInitialProps } from "next/app";
+import { ThemeProvider } from "@material-ui/styles";
 import withRedux from "next-redux-wrapper";
 
-/* store */
+/* type */
 import { Store } from "redux";
+
+/* style */
+import theme from "../src/theme";
+
+/* store */
 import initStore from "../store";
 
 /* type */
@@ -23,9 +29,11 @@ class MyApp extends App<Iprops> {
     const { Component, pageProps, store } = this.props;
     return (
       <Container>
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
+        </ThemeProvider>
       </Container>
     );
   }
@@ -38,18 +46,9 @@ MyApp.getInitialProps = async ({
   let pageProps: object = {};
   // 理由：any型だとeslintで警告が出るため
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let context: any = {};
-
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
-
-  /* redux init */
-  context = ctx;
-  const { dispatch } = context.store;
-
-  dispatch({ type: "FEATURE_SET", payload: { data: "test" } });
-
   return { pageProps };
 };
 
