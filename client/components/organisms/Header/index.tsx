@@ -1,22 +1,33 @@
 import React from "react";
 import Link from "next/link";
 
+/* style */
+import { AppBar, Toolbar } from "@material-ui/core";
+import styles from "./styles.scss";
+
 function Header(): JSX.Element {
   return (
-    <header>
-      <ul>
-        <li>
-          <Link href="/">
-            <button type="button">Index</button>
-          </Link>
-        </li>
-        <li>
-          <Link href="/counter">
-            <button type="button">Counter</button>
-          </Link>
-        </li>
-      </ul>
-    </header>
+    <AppBar position="fixed">
+      <Toolbar>
+        <h3>Sample App</h3>
+        <ul className={styles.row}>
+          <li>
+            <Link href="/">
+              <a className={styles.text} href="javascript:void(0)">
+                Index
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/counter">
+              <a className={styles.text} href="javascript:void(0)">
+                Counter
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </Toolbar>
+    </AppBar>
   );
 }
 
