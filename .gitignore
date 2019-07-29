@@ -4,3 +4,6 @@ node_modules/
 # next.js build output
 client/.next
 .next
+
+# firebase credientals client/server
+credentials/
