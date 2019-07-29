@@ -1,0 +1,14 @@
+.text {
+    color: white;
+    font-size: 16px;
+    text-decoration: none !important;
+}
+
+.row {
+    margin-left: auto;
+    li {
+        display: inline-block;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+}
