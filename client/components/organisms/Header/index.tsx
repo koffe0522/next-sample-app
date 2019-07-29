@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Link from "next/link";
 
@@ -13,16 +14,12 @@ function Header(): JSX.Element {
         <ul className={styles.row}>
           <li>
             <Link href="/">
-              <a className={styles.text} href="javascript:void(0)">
-                Index
-              </a>
+              <a className={styles.text}>Index</a>
             </Link>
           </li>
           <li>
             <Link href="/counter">
-              <a className={styles.text} href="javascript:void(0)">
-                Counter
-              </a>
+              <a className={styles.text}>Counter</a>
             </Link>
           </li>
         </ul>
