@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, ReactElement } from "react";
 import { useSelector } from "react-redux";
 
 /* firebase */
@@ -35,7 +35,7 @@ type Props = {
   user: object;
 };
 
-function Index(): JSX.Element {
+function Index(): ReactElement {
   /* maoStateToProps */
   const useName: string = useSelector(
     (state: State): string => state.auth.userName
@@ -53,6 +53,7 @@ function Index(): JSX.Element {
         console.log("----- Response for firebase auth -----");
         console.log(userCredential);
         const token = userCredential.user.getIdToken;
+        console.log(token);
       });
   };
 
@@ -75,7 +76,7 @@ function Index(): JSX.Element {
     firebase.initializeApp(clientCredentials);
 
     firebase.auth().onAuthStateChanged(
-      async (userData: firebase.User): Promise<any> => {
+      async (userData: firebase.User): Promise<void> => {
         if (userData) {
           // User is signed in.
           userData
@@ -127,10 +128,10 @@ function Index(): JSX.Element {
   );
 }
 
-Index.getInitialProps = async ({ req, query, userName }): Promise<object> => {
+Index.getInitialProps = async ({ req, userName }): Promise<object> => {
   const user = req && req.session ? req.session.decodedToken : null;
   console.log(`------ req.session ------`);
-  console.log(req.session);
+  console.log(user);
   return { user, userName };
 };
 

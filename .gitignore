@@ -7,3 +7,9 @@ client/.next
 
 # firebase credientals client/server
 credentials/
+
+# session
+sessions/
+
+# output
+out/

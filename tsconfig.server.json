@@ -13,7 +13,8 @@
       "server/*.ts",
       "index.ts",
       "routes.ts",
-      "*.ts"
-    ]
+      "*.ts",
+      "/**/*.js"
+      ]
   }
   
