@@ -35,8 +35,7 @@ function Todolist(): JSX.Element {
     dataBody.name = useName;
     dataBody.todos = todos;
 
-    const url = "http://localhost:9000/api/index";
-    const response = await fetch(url, {
+    const response = await fetch("/api/todos", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -80,17 +79,14 @@ function Todolist(): JSX.Element {
       <ul>
         {todos.map(
           (value, index): JSX.Element => {
-            const element =
-              value !== "" ? (
-                <li key={index.toString()}>
-                  {value}
-                  <button type="button" onClick={(): void => deleteTodo(index)}>
-                    x
-                  </button>
-                </li>
-              ) : (
-                <></>
-              );
+            const element = value !== "" && (
+              <li key={index.toString()}>
+                {value}
+                <button type="button" onClick={(): void => deleteTodo(index)}>
+                  x
+                </button>
+              </li>
+            );
             return element;
           }
         )}

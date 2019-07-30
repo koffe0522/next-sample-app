@@ -6,10 +6,15 @@ import { logOut } from "app/client/modules/auth";
 /* style */
 import styles from "./styles.scss";
 
-function LogoutButton(): JSX.Element {
+type Props = {
+  onHandleFunc: Function;
+};
+
+function LogoutButton(props: Props): JSX.Element {
   const dispatch: Dispatch = useDispatch();
 
   const handleSubmit = (): void => {
+    props.onHandleFunc();
     dispatch(logOut());
   };
 

@@ -1,5 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
+/* firebase */
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "isomorphic-unfetch";
 
 /* layouts */
 import Main from "app/client/layouts";
@@ -8,6 +14,7 @@ import Main from "app/client/layouts";
 import LoginForm from "app/client/components/organisms/LoginForm";
 import Todolist from "app/client/components/organisms/TodoList";
 import LogoutButton from "app/client/components/organisms/LogoutButton";
+import clientCredentials from "../../credentials/client";
 
 /**
  * Storeから受けとったStateを定義するI/F
@@ -21,17 +28,85 @@ interface State {
 
 /**
  * Propsの値を定義するI/F
- * @interface Props
+ * @type Props
  */
-interface Props {
+type Props = {
   userName: string;
-}
+  user: object;
+};
 
 function Index(): JSX.Element {
   /* maoStateToProps */
   const useName: string = useSelector(
     (state: State): string => state.auth.userName
   );
+
+  /**
+   * ログインのハンドラー
+   */
+  const handleLogin = (): void => {
+    // 匿名ログイン
+    firebase
+      .auth()
+      .signInAnonymously()
+      .then((userCredential): void => {
+        console.log("----- Response for firebase auth -----");
+        console.log(userCredential);
+        const token = userCredential.user.getIdToken;
+      });
+  };
+
+  /**
+   * ログアウト用のハンドラー
+   */
+  const handleLogout = (): void => {
+    firebase.auth().signOut();
+    fetch("/api/logout", {
+      method: "POST",
+      credentials: "same-origin"
+    }).then((res: Response): void => {
+      console.log("----- Response for /api/logout -----");
+      console.log(res);
+    });
+  };
+
+  useEffect((): void => {
+    // firebaseの初期化
+    firebase.initializeApp(clientCredentials);
+
+    firebase.auth().onAuthStateChanged(
+      async (userData: firebase.User): Promise<any> => {
+        if (userData) {
+          // User is signed in.
+          userData
+            .getIdTokenResult()
+            .then((idTokenResult): void => {
+              fetch("/api/login", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                },
+                credentials: "same-origin",
+                body: JSON.stringify(idTokenResult)
+              }).then((res: Response): void => {
+                console.log("----- Response for /api/login -----");
+                console.log(res);
+              });
+            })
+            .catch((error): void => {
+              console.log(error);
+            });
+        } else {
+          // User is signed out.
+          fetch("/api/logout", {
+            method: "POST",
+            credentials: "same-origin"
+          });
+        }
+      }
+    );
+  }, []);
 
   return (
     <Main>
@@ -41,19 +116,22 @@ function Index(): JSX.Element {
         {useName !== "" ? (
           <>
             <h2>Hello {useName}</h2>
-            <LogoutButton />
+            <LogoutButton onHandleFunc={handleLogout} />
             <Todolist />
           </>
         ) : (
-          <LoginForm />
+          <LoginForm onHandleFunc={handleLogin} />
         )}
       </div>
     </Main>
   );
 }
 
-Index.getInitialProps = (props: Props): object => {
-  return { userName: props.userName };
+Index.getInitialProps = async ({ req, query, userName }): Promise<object> => {
+  const user = req && req.session ? req.session.decodedToken : null;
+  console.log(`------ req.session ------`);
+  console.log(req.session);
+  return { user, userName };
 };
 
 export default Index;

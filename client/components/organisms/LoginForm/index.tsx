@@ -18,7 +18,11 @@ import {
 /* styles */
 import useStyles from "./styles";
 
-function LoginForm(): JSX.Element {
+type Props = {
+  onHandleFunc: Function;
+};
+
+function LoginForm(props: Props): JSX.Element {
   /* state */
   const [input, setInput] = useState<string>("");
   /* mapDispatchToProps */
@@ -33,6 +37,7 @@ function LoginForm(): JSX.Element {
   const handleSubmit = (): void => {
     setInput("");
     dispatch(login(input));
+    props.onHandleFunc();
   };
 
   return (
