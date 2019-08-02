@@ -13,3 +13,7 @@ sessions/
 
 # output
 out/
+dist/
+
+# Firebase cache
+.firebase/

@@ -14,7 +14,7 @@ import Main from "app/client/layouts";
 import LoginForm from "app/client/components/organisms/LoginForm";
 import Todolist from "app/client/components/organisms/TodoList";
 import LogoutButton from "app/client/components/organisms/LogoutButton";
-import clientCredentials from "../../credentials/client";
+import clientCredentials from "../client";
 
 /**
  * Storeから受けとったStateを定義するI/F
