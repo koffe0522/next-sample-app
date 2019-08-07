@@ -19,7 +19,8 @@
     "typecheck-app": "tsc --project ./client",
     "copy-deps": "cpx \"*{package.json,package-lock.json,yarn.lock}\" \"dist/functions\" -C",
     "install-deps": "cd \"dist/functions\" && yarn install",
-    "test": "jest",
+    "test": "npm run start-firestore & jest",
+    "start-firestore": "firebase serve --only firestore",
     "clear": "rm -r dist && yarn run preserve",
     "refresh": "yarn cache clean && rm -r node_modules yarn.lock && yarn install"
   },
@@ -68,6 +69,7 @@
     "ts-node": "^8.3.0"
   },
   "devDependencies": {
+    "@firebase/testing": "^0.11.9",
     "@types/enzyme": "^3.10.3",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.8",

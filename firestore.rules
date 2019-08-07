@@ -3,7 +3,7 @@ service cloud.firestore {
     // todosへのアクセスルール
     match /todos/{userId} {
       // ログイン時のみ読み込み・書き込みを許可
-      allow read, create: if request.auth.uid
+      allow read, create: if request.auth.uid == userId
     }
   }
 }

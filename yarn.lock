@@ -963,6 +963,18 @@
     "@firebase/util" "0.2.24"
     tslib "1.10.0"
 
+"@firebase/testing@^0.11.9":
+  version "0.11.9"
+  resolved "https://registry.yarnpkg.com/@firebase/testing/-/testing-0.11.9.tgz#5248bc05c3cc950572e0c803ca38bce6fb19a9cb"
+  integrity sha512-6XQ74K1z1fPwjx9fFEqbDYBTOeOmVzRiF195QS4Za3m5Tukw0VsyBMg5jQDX6je3akU/WjwRv7D6MaG2xscSaQ==
+  dependencies:
+    "@firebase/logger" "0.1.21"
+    "@firebase/util" "0.2.24"
+    "@types/request" "2.48.2"
+    firebase "6.3.4"
+    grpc "1.22.2"
+    request "2.88.0"
+
 "@firebase/util@0.2.24":
   version "0.2.24"
   resolved "https://registry.yarnpkg.com/@firebase/util/-/util-0.2.24.tgz#5ccb7888f3dacf911c1c6ec51b68a17dea5c9b74"
@@ -1597,7 +1609,7 @@
   dependencies:
     redux "^3.6.0"
 
-"@types/request@^2.48.1":
+"@types/request@2.48.2", "@types/request@^2.48.1":
   version "2.48.2"
   resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.2.tgz#936374cbe1179d7ed529fc02543deb4597450fed"
   integrity sha512-gP+PSFXAXMrd5PcD7SqHeUjdGshAI8vKQ3+AvpQr3ht9iQea+59LOKvKITcQI+Lg+1EIkDP6AFSBUJPWG8GDyA==
@@ -5677,7 +5689,7 @@ firebase-tools@^7.2.2:
     uuid "^3.0.0"
     winston "^1.0.1"
 
-firebase@^6.3.3:
+firebase@6.3.4, firebase@^6.3.3:
   version "6.3.4"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-6.3.4.tgz#a96301d5308871a9afe8b06195fac967e893778d"
   integrity sha512-UvLCXApdrhYZkGl1N/4dPPFVa3zFd+K963guaP9ckQhagch66Hv1xLwL8urmlBAGk9UZECMAk8f7YcLD217HkA==
@@ -10572,7 +10584,7 @@ request-promise-native@^1.0.5:
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 
-request@^2.72.0, request@^2.74.0, request@^2.79.0, request@^2.81.0, request@^2.87.0, request@^2.88.0:
+request@2.88.0, request@^2.72.0, request@^2.74.0, request@^2.79.0, request@^2.81.0, request@^2.87.0, request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
