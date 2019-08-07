@@ -1,6 +1,6 @@
 {
   "projects": {
     "default": "next-sample-app-25deb",
-    "next-sample-app": "next-sample-app-25deb"
+    "develop": "next-sample-app-25deb"
   }
 }
