@@ -17,3 +17,7 @@ dist/
 
 # Firebase cache
 .firebase/
+
+# Firebase key
+client/functions/fbConf.ts
+client/client.ts

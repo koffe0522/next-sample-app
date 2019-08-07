@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import App, { Container, AppContext, AppInitialProps } from "next/app";
+import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import withRedux from "next-redux-wrapper";
 
@@ -29,6 +30,10 @@ class MyApp extends App<Iprops> {
     const { Component, pageProps, store } = this.props;
     return (
       <Container>
+        <Head>
+          <link rel="manifest" href="../public/manifest.json" />
+          <link rel="icon" type="image/x-icon" href="../public/icon.ico" />
+        </Head>
         <ThemeProvider theme={theme}>
           <Provider store={store}>
             <Component {...pageProps} />

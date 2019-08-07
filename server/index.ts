@@ -12,6 +12,8 @@ import nextRoutes from "./routes";
 
 const FileStore = require("session-file-store")(session);
 
+const port = process.env.PORT || 3000;
+
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev, dir: "./client" });
 const routes = nextRoutes.getRequestHandler(app);
@@ -84,5 +86,5 @@ app.prepare().then((): any => {
     return routes(req, res);
   });
 
-  server.listen(9000, (): void => {});
+  server.listen(port, (): void => {});
 });
