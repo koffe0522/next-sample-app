@@ -2,7 +2,7 @@
   "functions": {
     "source": "dist/functions",
     "predeploy": [
-      "npm run preserve",
+      "npm run preserve"
     ]
   },
   "hosting": {
