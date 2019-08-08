@@ -9,7 +9,6 @@ import serviceAccount from "./fbConf";
 /* route */
 const routes = require("next-routes");
 const cors = require("cors");
-const FileStore = require("session-file-store")(session);
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev, conf: { distDir: "next" } });
@@ -37,7 +36,6 @@ server.use(
     secret: "geheimnis",
     name: "next-sample-app",
     saveUninitialized: true,
-    store: new FileStore({ secret: "geheimnis" }),
     resave: false,
     rolling: true,
     cookie: { maxAge: 604800000, httpOnly: true } // week
