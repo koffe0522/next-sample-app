@@ -28,7 +28,7 @@ jobs:
       # rulesのテストに使用するエミュレーターのセットアップ
       - run:
           name: emulators install
-          command: firebase setup:emulators:firestore
+          command: ./node_modules/.bin/firebase setup:emulators:firestore
       # キャッシュの保存処理。
       - save_cache:
           paths:
