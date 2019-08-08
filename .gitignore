@@ -21,7 +21,3 @@ dist/
 # Firebase debug log
 firebase-debug.log
 firestore-debug.log
-
-# Firebase key
-client/functions/fbConf.ts
-client/client.ts
