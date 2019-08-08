@@ -25,14 +25,16 @@ jobs:
       - run: 
           name: firebase-tools install
           command: npm install -D firebase-tools
-
+      # rulesのテストに使用するエミュレーターのセットアップ
+      - run:
+          name: emulators install
+          command: firebase setup:emulators:firestore
       # キャッシュの保存処理。
       - save_cache:
           paths:
             - node_modules
             - client/functions/node_modules
           key: dependencies-cache-{{ checksum "package.json" }}
-      
       #　デプロイの実行。build&testも含む
       - run:
           name: deploy to Firebase Hosting
