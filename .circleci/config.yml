@@ -17,10 +17,11 @@ jobs:
       - restore_cache:
           keys:
             - dependencies-cache-{{ checksum "package.json" }}
-
+      # パッケージのインストール
       - run:
           name: package install
           command: npm install
+      # デプロイに必要なfirebase-toolsのインストール
       - run: 
           name: firebase-tools install
           command: npm install -D firebase-tools
@@ -32,6 +33,7 @@ jobs:
             - client/functions/node_modules
           key: dependencies-cache-{{ checksum "package.json" }}
       
+      #　デプロイの実行。build&testも含む
       - run:
           name: deploy to Firebase Hosting
           command: ./node_modules/.bin/firebase --project default deploy --token=$FIREBASE_TOKEN

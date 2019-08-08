@@ -11,7 +11,7 @@
     "serve": "cross-env NODE_ENV=production firebase serve",
     "deploy": "firebase deploy",
     "deploy-rules": "firebase deploy --only firestore:rules,storage:rules",
-    "preserve": "yarn build-public && yarn build-functions && yarn build-client && yarn copy-deps && yarn install-deps",
+    "preserve": "yarn build-public && yarn build-functions && yarn build-client && yarn copy-deps && yarn install-deps && yarn test",
     "build": "rm -rf ./client/.next && tsc --project tsconfig.server.json && next build ./client",
     "build-client": "next build ./client",
     "build-public": "cpx \"client/public/**/*.*\" \"dist/public\" -C",

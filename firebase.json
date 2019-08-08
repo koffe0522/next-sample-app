@@ -2,11 +2,7 @@
   "functions": {
     "source": "dist/functions",
     "predeploy": [
-      "npm run typecheck-app",
-      "npm run build-functions",
-      "npm run build-client",
-      "npm run copy-deps",
-      "npm run install-deps"
+      "npm run preserve",
     ]
   },
   "hosting": {
