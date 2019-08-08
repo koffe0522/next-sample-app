@@ -1,26 +1,37 @@
 version: 2
 jobs:
-  deploy_dev:
+  build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10.16.0
+    # 対象のブランチはmasterのみ
+    branches:
+      only:
+        - master
+
+    working_directory: ~/repo
+
     steps:
-      - checkout # ソースコードのチェックアウト
+      # ソースコードのチェックアウト
+      - checkout
+      # キャッシュのリストア処理。
+      - restore_cache:
+          keys:
+            - dependencies-cache-{{ checksum "package.json" }}
+
       - run:
           name: package install
           command: npm install
-      - run:
-          name: handle build
-          command: npm run
+      - run: 
+          name: firebase-tools install
+          command: npm install -D firebase-tools
+
+      # キャッシュの保存処理。
+      - save_cache:
+          paths:
+            - node_modules
+            - client/functions/node_modules
+          key: dependencies-cache-{{ checksum "package.json" }}
+      
       - run:
           name: deploy to Firebase Hosting
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
-
-workflows:
-  version: 2
-  deploy_dev: # ワークフローの名前
-    jobs:
-      - deploy_dev: # 上で定義したジョブを指定します
-        filters:
-          branches:
-              only: master # masterブランチのみを実行対象とします
-
