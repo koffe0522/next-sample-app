@@ -10,7 +10,7 @@ import session from "express-session";
 import serviceAccount from "../credentials/server";
 import nextRoutes from "./routes";
 
-const FileStore = require("session-file-store")(session);
+// const FileStore = require("session-file-store")(session);
 
 const port = process.env.PORT || 3000;
 
@@ -39,7 +39,7 @@ app.prepare().then((): any => {
       secret: "geheimnis",
       name: "next-sample-app",
       saveUninitialized: true,
-      store: new FileStore({ secret: "geheimnis" }),
+      // store: new FileStore({ secret: "geheimnis" }),
       resave: false,
       rolling: true,
       cookie: { maxAge: 604800000, httpOnly: true } // week
