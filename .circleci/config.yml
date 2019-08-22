@@ -3,10 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/openjdk:11-jdk-sid-node
-    # 対象のブランチはmasterのみ
-    branches:
-      only:
-        - master
 
     working_directory: ~/repo
 
